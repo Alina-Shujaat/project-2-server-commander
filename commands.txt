@@ -1,0 +1,37 @@
+# =========================
+# PROJECT 2 - SERVER COMMANDER
+# commands.txt
+# =========================
+
+# Connect to EC2 Server
+chmod 400 server-key.pem
+ssh -i server-key.pem ubuntu@PUBLIC_IP
+
+# Update Packages
+sudo apt update -y
+
+# Install Apache Web Server
+sudo apt install apache2 -y
+
+# Start Apache Service
+sudo systemctl start apache2
+
+# Enable Apache on Boot
+sudo systemctl enable apache2
+
+# Check Apache Status
+sudo systemctl status apache2
+
+# Create / Edit Webpage
+sudo nano /var/www/html/index.html
+
+# Restart Apache (after changes)
+sudo systemctl restart apache2
+
+# Firewall (if needed)
+sudo ufw status
+sudo ufw allow 80
+sudo ufw allow 22
+
+# Verify Server IP access (browser)
+# http://YOUR_PUBLIC_IP
